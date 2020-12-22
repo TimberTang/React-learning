@@ -88,5 +88,7 @@ props 属性发生变化
   // 1. 组件第一次存在于dom中, 函数是不会被执行的
     // 2. 如果存在于dom中,函数才会被执行
 
-剩下的和stats 发生一样
+剩下的和states 发生一样
+[生命周期](https://github.com/TimberTang/React-learning/blob/main/demo01/lifecycle.png)
+
 
