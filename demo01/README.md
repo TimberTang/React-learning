@@ -102,7 +102,7 @@ componentWillUnmount // 组件将要背删除时执行
 子组件可以合理的设置 shouldComponentUpdate 来控制显示性能
 
 例如: 
-shouldComponentUpdate (nextProps, nextState) {
+shouldComponentUpdateshouldComponentUpdate (nextProps, nextState) {
     if (nextProps.content !== this.props.content) {
         return true
     }
