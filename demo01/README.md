@@ -15,3 +15,29 @@
 1. 从index.js开始
 2. 引入react相关组件 并render
 3. app.js 继承components 实现renderr 函数并导出
+
+
+### jsx中注意事项
+{/* 1. 第一次写注释 大括号加上js的注释 */}
+ {// 注释 单行需要换行
+ } 
+
+ {/* class 陷阱 需要使用className */}
+
+ {/* 3. dangerouslySetInnerHTML 可以显示html 来解析 */}
+ {/* 4. label辅助性标签 点击可以聚焦到input上 必须使用htmlfor 来区别jsx 的for */}
+
+
+ ## 插件 simple react snippets
+ imrc = import react
+ cc  = class components'
+
+
+ ## 组件拆分 
+ 根据业务功能进行拆分， 这样设计到父子组件传值
+
+ 父组件像子组件传值 运用props 属性传值方法。 子组件用this.props接受
+ 子组件像父组件传值 运用props 回调函数传递方法。 父组件去操作里面的方法
+
+
+ ## 单向数据流和其他框架结合 && 函数式编程
