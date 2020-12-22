@@ -3,6 +3,8 @@ import "./style.css";
 import XiaojiejieItem from "./XiaojiejieItem";
 
 class Xiaojiejie extends Component {
+    // 在某一时刻, 可以自动执行的函数
+    // 可以当成初始阶段
     constructor(props) {
         super(props);
         this.state = {
@@ -10,7 +12,32 @@ class Xiaojiejie extends Component {
             list: ["基础按摩", "精油推背"],
         };
     }
+
+    componentWillMount () {
+        console.log('componentWillMount');
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
+    }
+
+
+    shouldComponentUpdate() { // 在组件更新之前执行
+        console.log('shouldComponentUpdate');
+        return true
+    }
+
+    componentWillUpdate () { // componentWillUpdate 在 shouldComponentUpdate 执行
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate () {
+        console.log('componentDidUpdate');
+    }
+
+    // compoentWillMount => render => componentDidMount
     render() {
+        console.log('render');
         return (
             <Fragment>
                 {/* 1. 第一次写注释 大括号加上js的注释 */}
@@ -29,9 +56,10 @@ class Xiaojiejie extends Component {
                         className="input"
                         value={this.state.inputValue}
                         onChange={this.inputChange.bind(this)}
+                        ref = {(input) => {this.input = input}}
                     ></input>
                     <button onClick={this.addList.bind(this)}>添加服务</button>
-                    <ul>
+                    <ul ref={(ul)=> this.ul = ul}>
                         {this.state.list.map((item, index) => {
                             return (
                                 // <li
@@ -42,7 +70,7 @@ class Xiaojiejie extends Component {
                                 // </li>
                                 <div key={index}>
                                     <XiaojiejieItem
-                                        content={item} 
+                                        content={item}
                                         index={index}
                                         deleteItem={this.deleteItem.bind(this)}
                                     />
@@ -55,8 +83,9 @@ class Xiaojiejie extends Component {
         );
     }
     inputChange(el) {
-        const value = el.target.value;
-        console.log(value);
+        // const value = el.target.value;
+        const value = this.input.value
+        // console.log(value);
         // this.state.input = value // 这是错误的。 1. this 指向undefied  2. 直接修改state是不可行的
         // console.log(this);
         this.setState({
@@ -70,7 +99,12 @@ class Xiaojiejie extends Component {
         this.setState({
             list: [...this.state.list, this.state.inputValue],
             inputValue: "",
+        }, () => {
+            console.log(this.ul.querySelectorAll('li').length); // 利用回调函数
         });
+        // 绑定ul 后查询找li 然后获取长度 
+        // 最后length 会少一项， 因为setState 是异步的。 虚拟dom是有时间的。 所有这里获取length会不一样
+        // console.log(this.ul.querySelectorAll('li').length);
     }
     deleteItem(index) {
         console.log(index);

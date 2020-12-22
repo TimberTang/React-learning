@@ -63,3 +63,30 @@ XiaojiejieItem.propTypes = {
 XiaojiejieItem.defaultProps = {
   avname: '波波'
 }
+
+
+## ref 绑定 html的元素 
+
+因为setState 是异步的。 虚拟dom是有时间的。可以利用setState 回调函数来操作其他的
+
+
+## 生命周期  在某一时刻, 可以自动执行的函数
+四大块  initlization  mounting updation unmounte四大阶段
+initlization: 初始化阶段, 比如构造函数中
+mounting: compoentWillMount => render => componentDidMount
+updation: 
+
+
+states 发生变化
+1. shouldComponentUpdate // 在组件更新之前执行 如果return false 则不会网下面执行. return true可以继续网下执行
+2. componentWillUpdate // componentWillUpdate 在 shouldComponentUpdate 执行 
+3. render // 前两部执行后执行render
+4. componentDidUpdate // 组件已经更新完成后
+
+props 属性发生变化
+1. componentWillReceiveProps // 组件接受到props 发生变化时更新
+  // 1. 组件第一次存在于dom中, 函数是不会被执行的
+    // 2. 如果存在于dom中,函数才会被执行
+
+剩下的和stats 发生一样
+

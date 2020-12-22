@@ -6,6 +6,14 @@ class XiaojiejieItem extends Component {
         super(props);
         this.deleItem = this.deleItem.bind(this);
     }
+
+    // 组件接受到props 发生变化时更新
+    // 1. 组件第一次存在于dom中, 函数是不会被执行的
+    // 2. 如果存在于dom中,函数才会被执行
+    componentWillReceiveProps () {
+        console.log('child ---- componentWillReceiveProps');
+    }
+
     render() {
         return (
             <li onClick={this.deleItem}>
