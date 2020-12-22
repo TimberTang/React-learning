@@ -14,6 +14,10 @@ class XiaojiejieItem extends Component {
         console.log('child ---- componentWillReceiveProps');
     }
 
+    componentWillUnmount () {
+        console.log('componentWillUnmount');
+    }
+
     render() {
         return (
             <li onClick={this.deleItem}>

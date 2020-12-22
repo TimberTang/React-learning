@@ -92,3 +92,5 @@ props 属性发生变化
 ![生命周期](https://github.com/TimberTang/React-learning/blob/main/demo01/lifecycle.png)
 
 
+unmouning: 
+componentWillUnmount // 组件将要背删除时执行
