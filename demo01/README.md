@@ -41,3 +41,25 @@
 
 
  ## 单向数据流和其他框架结合 && 函数式编程
+
+
+ ## React Dev tools google 扩展程序， 可以在chrome 上进行调试
+安装后可以看到Components and profiler
+
+
+## props 参数校验
+
+import PropTypes from "prop-types";
+
+// 参数类型校验
+XiaojiejieItem.propTypes = {
+    content: PropTypes.string,
+    index: PropTypes.number,
+    deleItem: PropTypes.func,
+    avname: PropTypes.string.isRequired
+};
+
+// 默认参数
+XiaojiejieItem.defaultProps = {
+  avname: '波波'
+}

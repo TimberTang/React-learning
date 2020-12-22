@@ -42,10 +42,10 @@ class Xiaojiejie extends Component {
                                 // </li>
                                 <div key={index}>
                                     <XiaojiejieItem
-                                     content={item} 
-                                    index={index}
-                                    deleteItem={this.deleteItem.bind(this)}
-                                />
+                                        content={item} 
+                                        index={index}
+                                        deleteItem={this.deleteItem.bind(this)}
+                                    />
                                 </div>
                             );
                         })}
