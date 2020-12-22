@@ -13,31 +13,31 @@ class Xiaojiejie extends Component {
         };
     }
 
-    componentWillMount () {
-        console.log('componentWillMount');
-    }
+    // componentWillMount () {
+    //     console.log('componentWillMount');
+    // }
 
-    componentDidMount() {
-        console.log('componentDidMount');
-    }
+    // componentDidMount() {
+    //     console.log('componentDidMount');
+    // }
 
 
-    shouldComponentUpdate() { // 在组件更新之前执行
-        console.log('shouldComponentUpdate');
-        return true
-    }
+    // shouldComponentUpdate() { // 在组件更新之前执行
+    //     console.log('shouldComponentUpdate');
+    //     return true
+    // }
 
-    componentWillUpdate () { // componentWillUpdate 在 shouldComponentUpdate 执行
-        console.log('componentWillUpdate');
-    }
+    // componentWillUpdate () { // componentWillUpdate 在 shouldComponentUpdate 执行
+    //     console.log('componentWillUpdate');
+    // }
 
-    componentDidUpdate () {
-        console.log('componentDidUpdate');
-    }
+    // componentDidUpdate () {
+    //     console.log('componentDidUpdate');
+    // }
 
     // compoentWillMount => render => componentDidMount
     render() {
-        console.log('render');
+        // console.log('render');
         return (
             <Fragment>
                 {/* 1. 第一次写注释 大括号加上js的注释 */}

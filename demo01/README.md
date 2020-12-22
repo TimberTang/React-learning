@@ -94,3 +94,17 @@ props 属性发生变化
 
 unmouning: 
 componentWillUnmount // 组件将要背删除时执行
+
+
+## 项目问题, 组件不停的在render 
+可以通过 dev tools 开启hilight updates 选项查看
+
+子组件可以合理的设置 shouldComponentUpdate 来控制显示性能
+
+例如: 
+shouldComponentUpdate (nextProps, nextState) {
+    if (nextProps.content !== this.props.content) {
+        return true
+    }
+    return false
+}
