@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "./style.css";
 import XiaojiejieItem from "./XiaojiejieItem";
+import axios from 'axios'
 
 class Xiaojiejie extends Component {
     // 在某一时刻, 可以自动执行的函数
@@ -11,6 +12,11 @@ class Xiaojiejie extends Component {
             inputValue: "TimberTang",
             list: ["基础按摩", "精油推背"],
         };
+    }
+
+
+    componentDidMount () {
+        // axios.get('/')
     }
 
     // componentWillMount () {

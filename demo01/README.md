@@ -108,3 +108,12 @@ shouldComponentUpdateshouldComponentUpdate (nextProps, nextState) {
     }
     return false
 }
+
+
+## 远程数据请求
+
+#### 相关命令简介
+npm install axios 安装node moduuals 但是在package.json 下没有依赖
+npm install -g axios 安装到全局 prefix
+npm install -save axios 安装到 node moduals 并在package.json dependencies 有依赖 依赖的作用就是npm install的时候会 
+npm install-save-dev  axios  保存在devdependencies 中
