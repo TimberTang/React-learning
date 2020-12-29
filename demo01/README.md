@@ -117,3 +117,27 @@ npm install axios 安装node moduuals 但是在package.json 下没有依赖
 npm install -g axios 安装到全局 prefix
 npm install -save axios 安装到 node moduals 并在package.json dependencies 有依赖 依赖的作用就是npm install的时候会 
 npm install-save-dev  axios  保存在devdependencies 中
+
+axios.post('http://tcg.t1.ndmicro.net/tmd/api/index/v1/credit-limit')
+.then((res) => {
+   console.log('success' + JSON.stringify(res));
+   // this.setState({
+   //     list: res.data
+   // })
+})
+.catch(error => {
+})
+
+
+### 利用变量显示css 等
+
+
+### keyframes 关键帧动画
+
+
+### npm install  react-transition-group --save 
+官方动画库
+
+- Transition
+- CSSTransition
+- TranstionGroup

@@ -2,6 +2,8 @@ import React, { Component, Fragment } from "react";
 import "./style.css";
 import XiaojiejieItem from "./XiaojiejieItem";
 import axios from 'axios'
+import Boss from './boss'
+import {CSSTransition, TransitionGroup} from 'react-transition-group'
 
 class Xiaojiejie extends Component {
     // 在某一时刻, 可以自动执行的函数
@@ -15,8 +17,18 @@ class Xiaojiejie extends Component {
     }
 
 
+    // 组件已经挂在 
     componentDidMount () {
         // axios.get('/')
+    axios.post('http://tcg.t1.ndmicro.net/tmd/api/index/v1/credit-limit')
+    .then((res) => {
+        console.log('success' + JSON.stringify(res));
+        // this.setState({
+        //     list: res.data
+        // })
+    })
+    .catch(error => {
+    })
     }
 
     // componentWillMount () {
@@ -66,25 +78,36 @@ class Xiaojiejie extends Component {
                     ></input>
                     <button onClick={this.addList.bind(this)}>添加服务</button>
                     <ul ref={(ul)=> this.ul = ul}>
-                        {this.state.list.map((item, index) => {
-                            return (
-                                // <li
-                                //     onClick={this.deleteItem.bind(this, index)}
-                                //     dangerouslySetInnerHTML={{__html: item}}
-                                //     key={index}>
-                                //     {/* {item} */}
-                                // </li>
-                                <div key={index}>
-                                    <XiaojiejieItem
-                                        content={item}
-                                        index={index}
-                                        deleteItem={this.deleteItem.bind(this)}
-                                    />
-                                </div>
-                            );
-                        })}
+                        <TransitionGroup>
+                            {this.state.list.map((item, index) => {
+                                return (
+                                    // <li
+                                    //     onClick={this.deleteItem.bind(this, index)}
+                                    //     dangerouslySetInnerHTML={{__html: item}}
+                                    //     key={index}>
+                                    //     {/* {item} */}
+                                    // </li>
+                                    <CSSTransition
+                                        timeout={2000}
+                                        classNames='boss-text'
+                                        unmountOnExit
+                                        appear={true}
+                                        key={index+item}
+                                    >
+                                        <div key={index}>
+                                            <XiaojiejieItem
+                                                content={item}
+                                                index={index}
+                                                deleteItem={this.deleteItem.bind(this)}
+                                            />
+                                        </div>
+                                    </CSSTransition>
+                                );
+                            })}
+                        </TransitionGroup>
                     </ul>
                 </div>
+                <Boss></Boss>
             </Fragment>
         );
     }
